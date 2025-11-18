@@ -1,7 +1,7 @@
 extends Control
 
 var gameCenter: GameCenterManager
-var local: AppleLocalPlayer
+var local: GKLocalPlayer
 
 func _ready() -> void:
 	gameCenter = GameCenterManager.new()
