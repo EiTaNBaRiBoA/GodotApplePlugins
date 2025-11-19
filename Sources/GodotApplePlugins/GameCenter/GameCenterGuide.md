@@ -68,10 +68,6 @@ that track the local player state.
 
 ## Players
 
-Apple Documentation:
-
-* [GKLocalPlayer](https://developer.apple.com/documentation/gamekit/gklocalplayer)
-
 ### Fetch the Local Player
 
 From the GameCenterManager, you can call `local_player`, this returns
@@ -92,18 +88,36 @@ There are a number of interesting properties in local_player that you
 might want to use in your game like `is_authenticated`, `is_underage`,
 `is_multiplayer_gaming_restricted` and so on.
 
-### Loading Player Photo
-
-
-```gdscript
-	# Here, we put the image inside an existing TextureRect, named $texture_rect:
-	local_player.load_photo(true, func(image: Image, error: Variant)->void:
-		if error == null:
-			$texture_rect.texture = ImageTexture.create_from_image(image)
-	)
-```
-
 ### GKPlayer
 
 * [GKPlayer]((https://developer.apple.com/documentation/gamekit/gkplayer)
 
+This is the base class for a player, either the local one or friends
+and contains properties and methods that are common to both
+
+Apple Documentation:
+
+* [GKLocalPlayer](https://developer.apple.com/documentation/gamekit/gklocalplayer)
+
+### Loading a Player Photo
+
+
+```gdscript
+# Here, we put the image inside an existing TextureRect, named $texture_rect:
+local_player.load_photo(true, func(image: Image, error: Variant)->void:
+	if error == null:
+		$texture_rect.texture = ImageTexture.create_from_image(image)
+)
+```
+
+### Loading the Friends List
+
+```gdscript
+local_player.load_friends(func(friends: Variant, error: Variant)->void:
+	if error:
+		print(error)
+	else:
+		for friend in friends:
+			print(friend.displayName)
+)
+```

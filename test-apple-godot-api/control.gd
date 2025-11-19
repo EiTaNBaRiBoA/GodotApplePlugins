@@ -20,23 +20,26 @@ func _on_button_pressed() -> void:
 		$auth_result.text = error
 		)
 	gameCenter.authentication_result.connect(func(status: bool) -> void:
+		print("")
 		if status:
 			$auth_result.text = player.display_name
 			$auth_state.text = "Authenticated"
 			gameCenter.local_player.load_photo(true, func(image: Image, error: Variant)->void:
 				if error == null:
 					$texture_rect.texture = ImageTexture.create_from_image(image)
+				else:
+					print(error)
 				)
-			#gameCenter.local_player.load_photo(true, func(data: PackedByteArray, error: Variant) -> void: 
-				#if error == null:
-					#print("Got the image %d" % data.size())
-					#var image = Image.new()
-					#if image.load_png_from_buffer(data) == 0:
-						#var image_texture = ImageTexture.create_from_image(image)
-						#$texture_rect.texture = image_texture
-				#else:
-					#print("We got an error %s" % error)
-			#)
+			print("Loading friends...")
+			local.load_friends(func(friends: Variant, error: Variant) -> void:
+				print("Loaded friends with %s" % friends)
+				print("   ERRR friends with %s" % error)
+				if error == null:
+					for friend in friends:
+						print("Found friend: %s" % friend.display_name)
+				else:
+					print("Error loading friends: %s" % error)
+					)
 		else:
 			$auth_state.text = "Not Authenticated"
 		)

@@ -33,10 +33,8 @@ class GameCenterManager: RefCounted, @unchecked Sendable {
     func authenticate() {
         let localPlayer = GameKit.GKLocalPlayer.local
         localPlayer.authenticateHandler = { viewController, error in
-            GD.print("AppleLocalPlayer: authentication callback")
             MainActor.assumeIsolated {
                 if let vc = viewController {
-                    GD.print("Presenting VC")
                     presentOnTop(vc)
                     return
                 }
@@ -44,14 +42,11 @@ class GameCenterManager: RefCounted, @unchecked Sendable {
                 if let error = error {
                     self.authentication_error.emit(String(describing: error))
                 }
-                GD.print("Raising events")
                 self.isAuthenticated = GameKit.GKLocalPlayer.local.isAuthenticated
                 self.authentication_result.emit(self.isAuthenticated)
             }
         }
     }
-
-
 }
 
 #if standalone

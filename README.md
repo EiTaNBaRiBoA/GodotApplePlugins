@@ -2,7 +2,7 @@ Plugins for some Apple-specific tasks, works on MacOS and iOS.
 
 The Makefile should produce a set of gdextensions that you can pick and choose.
 
-* [GameCenter Integration Guide](Sources/GameCenter/GameCenterGuide.md)
+* [GameCenter Integration Guide](Sources/GodotApplePlugins/GameCenter/GameCenterGuide.md)
 
 Caveat: it currently defaults to dynamic libraries, which require manual steps in 
 Godot to make them work.  Modifyt he Package.swift to force a static library instead
