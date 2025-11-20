@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>GKMatchRequest &#8212; Godot Apple Plugins for MacOS and iOS 1.0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=2bf1fcf8" />
+    
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="GKPlayer" href="class_gkplayer.html" />
+    <link rel="prev" title="GKMatchmakerViewController" href="class_gkmatchmakerviewcontroller.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="class_gkplayer.html" title="GKPlayer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="class_gkmatchmakerviewcontroller.html" title="GKMatchmakerViewController"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Godot Apple Plugins for MacOS and iOS 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GKMatchRequest</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="gkmatchrequest">
+<span id="class-gkmatchrequest"></span><h1>GKMatchRequest<a class="headerlink" href="#gkmatchrequest" title="Link to this heading">¶</a></h1>
+<p><strong>Inherits:</strong> <span class="xref std std-ref">RefCounted</span> <strong>&lt;</strong> <span class="xref std std-ref">Object</span></p>
+<p>Configures how many players Game Center should recruit for a realtime match.</p>
+<section class="classref-introduction-group" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Instantiate <code class="docutils literal notranslate"><span class="pre">GKMatchRequest</span></code>, set the minimum/maximum player counts and invite message, then either create a <code class="docutils literal notranslate"><span class="pre">GKMatchmakerViewController</span></code> (for full UI control) or call <a class="reference internal" href="class_gkmatchmakerviewcontroller.html#class-gkmatchmakerviewcontroller-method-request-match"><span class="std std-ref">GKMatchmakerViewController.request_match()</span></a> as shown in <code class="docutils literal notranslate"><span class="pre">GameCenterGuide.md</span></code>. The optional <code class="docutils literal notranslate"><span class="pre">MatchType</span></code> argument lets you switch between peer-to-peer, hosted, or turn-based matchmaking. Apple’s guide is at <a class="reference external" href="https://developer.apple.com/documentation/gamekit/gkmatchrequest">Apple’s GKMatchRequest reference</a>.</p>
+<p>Configuration snippet from the guide:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">request</span> <span class="o">:=</span> <span class="n">GKMatchRequest</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="n">request</span><span class="o">.</span><span class="n">max_players</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">request</span><span class="o">.</span><span class="n">min_players</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">request</span><span class="o">.</span><span class="n">invite_message</span> <span class="o">=</span> <span class="s2">&quot;Join me in a quest to fun&quot;</span>
+
+<span class="n">var</span> <span class="n">max_supported</span> <span class="o">:=</span> <span class="n">GKMatchRequest</span><span class="o">.</span><span class="n">max_players_allowed_for_match</span><span class="p">(</span><span class="n">GKMatchRequest</span><span class="o">.</span><span class="n">MatchType</span><span class="o">.</span><span class="n">peerToPeer</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peer-to-peer supports up to </span><span class="si">%d</span><span class="s2"> players&quot;</span> <span class="o">%</span> <span class="n">max_supported</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section class="classref-reftable-group" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><span class="xref std std-ref">int</span></p></td>
+<td><p><a class="reference internal" href="#class-gkmatchrequest-property-default-number-of-players"><span class="std std-ref">default_number_of_players</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="xref std std-ref">String</span></p></td>
+<td><p><a class="reference internal" href="#class-gkmatchrequest-property-invite-message"><span class="std std-ref">invite_message</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="xref std std-ref">int</span></p></td>
+<td><p><a class="reference internal" href="#class-gkmatchrequest-property-max-players"><span class="std std-ref">max_players</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="xref std std-ref">int</span></p></td>
+<td><p><a class="reference internal" href="#class-gkmatchrequest-property-min-players"><span class="std std-ref">min_players</span></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="classref-reftable-group" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><span class="xref std std-ref">int</span></p></td>
+<td><p><a class="reference internal" href="#class-gkmatchrequest-method-max-players-allowed-for-match"><span class="std std-ref">max_players_allowed_for_match</span></a>(forType: <a class="reference internal" href="#enum-gkmatchrequest-matchtype"><span class="std std-ref">MatchType</span></a>) <abbr title="This method doesn't need an instance to be called, so it can be called directly using the class name.">static</abbr></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="classref-section-separator docutils" />
+<section class="classref-descriptions-group" id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="Link to this heading">¶</a></h2>
+<p class="classref-enumeration" id="enum-gkmatchrequest-matchtype">enum <strong>MatchType</strong>: <a class="reference internal" href="#enum-gkmatchrequest-matchtype"><span class="std std-ref">🔗</span></a></p>
+<p class="classref-enumeration-constant" id="class-gkmatchrequest-constant-peertopeer"><a class="reference internal" href="#enum-gkmatchrequest-matchtype"><span class="std std-ref">MatchType</span></a> <strong>peerToPeer</strong> = <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<p>Requests the peer-to-peer matchmaking flow.</p>
+<p class="classref-enumeration-constant" id="class-gkmatchrequest-constant-hosted"><a class="reference internal" href="#enum-gkmatchrequest-matchtype"><span class="std std-ref">MatchType</span></a> <strong>hosted</strong> = <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Requests a server-hosted match managed outside the local device.</p>
+<p class="classref-enumeration-constant" id="class-gkmatchrequest-constant-turnbased"><a class="reference internal" href="#enum-gkmatchrequest-matchtype"><span class="std std-ref">MatchType</span></a> <strong>turnBased</strong> = <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+<p>Requests a turn-based match that exchanges moves asynchronously.</p>
+</section>
+<hr class="classref-section-separator docutils" />
+<section class="classref-descriptions-group" id="property-descriptions">
+<h2>Property Descriptions<a class="headerlink" href="#property-descriptions" title="Link to this heading">¶</a></h2>
+<p class="classref-property" id="class-gkmatchrequest-property-default-number-of-players"><span class="xref std std-ref">int</span> <strong>default_number_of_players</strong> = <code class="docutils literal notranslate"><span class="pre">0</span></code> <a class="reference internal" href="#class-gkmatchrequest-property-default-number-of-players"><span class="std std-ref">🔗</span></a></p>
+<ul class="classref-property-setget simple">
+<li><p><abbr title="No return value.">void</abbr> <strong>set_default_number_of_players</strong>(value: <span class="xref std std-ref">int</span>)</p></li>
+<li><p><span class="xref std std-ref">int</span> <strong>get_default_number_of_players</strong>()</p></li>
+</ul>
+<p>Default number of players your UI suggests when presenting the matchmaking sheet.</p>
+<hr class="classref-item-separator docutils" />
+<p class="classref-property" id="class-gkmatchrequest-property-invite-message"><span class="xref std std-ref">String</span> <strong>invite_message</strong> = <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> <a class="reference internal" href="#class-gkmatchrequest-property-invite-message"><span class="std std-ref">🔗</span></a></p>
+<ul class="classref-property-setget simple">
+<li><p><abbr title="No return value.">void</abbr> <strong>set_invite_message</strong>(value: <span class="xref std std-ref">String</span>)</p></li>
+<li><p><span class="xref std std-ref">String</span> <strong>get_invite_message</strong>()</p></li>
+</ul>
+<p>Optional text Apple shows when the player sends invitations (see the <code class="docutils literal notranslate"><span class="pre">invite_message</span></code> example in the guide).</p>
+<hr class="classref-item-separator docutils" />
+<p class="classref-property" id="class-gkmatchrequest-property-max-players"><span class="xref std std-ref">int</span> <strong>max_players</strong> = <code class="docutils literal notranslate"><span class="pre">2</span></code> <a class="reference internal" href="#class-gkmatchrequest-property-max-players"><span class="std std-ref">🔗</span></a></p>
+<ul class="classref-property-setget simple">
+<li><p><abbr title="No return value.">void</abbr> <strong>set_max_players</strong>(value: <span class="xref std std-ref">int</span>)</p></li>
+<li><p><span class="xref std std-ref">int</span> <strong>get_max_players</strong>()</p></li>
+</ul>
+<p>Maximum desired players in the match.</p>
+<hr class="classref-item-separator docutils" />
+<p class="classref-property" id="class-gkmatchrequest-property-min-players"><span class="xref std std-ref">int</span> <strong>min_players</strong> = <code class="docutils literal notranslate"><span class="pre">2</span></code> <a class="reference internal" href="#class-gkmatchrequest-property-min-players"><span class="std std-ref">🔗</span></a></p>
+<ul class="classref-property-setget simple">
+<li><p><abbr title="No return value.">void</abbr> <strong>set_min_players</strong>(value: <span class="xref std std-ref">int</span>)</p></li>
+<li><p><span class="xref std std-ref">int</span> <strong>get_min_players</strong>()</p></li>
+</ul>
+<p>Minimum player count required before the match can start.</p>
+</section>
+<hr class="classref-section-separator docutils" />
+<section class="classref-descriptions-group" id="method-descriptions">
+<h2>Method Descriptions<a class="headerlink" href="#method-descriptions" title="Link to this heading">¶</a></h2>
+<p class="classref-method" id="class-gkmatchrequest-method-max-players-allowed-for-match"><span class="xref std std-ref">int</span> <strong>max_players_allowed_for_match</strong>(forType: <a class="reference internal" href="#enum-gkmatchrequest-matchtype"><span class="std std-ref">MatchType</span></a>) <abbr title="This method doesn't need an instance to be called, so it can be called directly using the class name.">static</abbr> <a class="reference internal" href="#class-gkmatchrequest-method-max-players-allowed-for-match"><span class="std std-ref">🔗</span></a></p>
+<p>Returns Apple’s maximum supported player count for the supplied match type (<code class="docutils literal notranslate"><span class="pre">peer_to_peer</span></code>, <code class="docutils literal notranslate"><span class="pre">hosted</span></code>, or <code class="docutils literal notranslate"><span class="pre">turn_based</span></code>).</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">GKMatchRequest</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#properties">Properties</a></li>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+<li><a class="reference internal" href="#enumerations">Enumerations</a></li>
+<li><a class="reference internal" href="#property-descriptions">Property Descriptions</a></li>
+<li><a class="reference internal" href="#method-descriptions">Method Descriptions</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="class_gkmatchmakerviewcontroller.html"
+                          title="previous chapter">GKMatchmakerViewController</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="class_gkplayer.html"
+                          title="next chapter">GKPlayer</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/class_gkmatchrequest.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="class_gkplayer.html" title="GKPlayer"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="class_gkmatchmakerviewcontroller.html" title="GKMatchmakerViewController"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Godot Apple Plugins for MacOS and iOS 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">GKMatchRequest</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Miguel de Icaza.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

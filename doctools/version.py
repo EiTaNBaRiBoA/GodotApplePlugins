@@ -1,7 +1,7 @@
 short_name = "GodotApplePlugins"
 name = "Godot Apple Plugins for MacOS and iOS"
-major = 4
-minor = 6
+major = 1
+minor = 0
 patch = 0
 status = "dev"
 module_config = ""
