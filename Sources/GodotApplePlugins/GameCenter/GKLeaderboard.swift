@@ -14,15 +14,15 @@ import AppKit
 
 import GameKit
 
-enum AppleLeaderboardType: Int, CaseIterable {
-    case classic
-    case recurring
-    case unknown
-}
-
 @Godot
 class GKLeaderboard: RefCounted, @unchecked Sendable {
     var board: GameKit.GKLeaderboard = GameKit.GKLeaderboard()
+
+    enum AppleLeaderboardType: Int, CaseIterable {
+        case classic
+        case recurring
+        case unknown
+    }
 
     enum TimeScope: Int, CaseIterable {
         case today

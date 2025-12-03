@@ -123,6 +123,7 @@ class GKMatchmakerViewController: RefCounted, @unchecked Sendable {
 
 #endif
                 _ = self.callback.call(nil, Variant("cancelled"))
+                done()
             }
         }
 
@@ -131,6 +132,7 @@ class GKMatchmakerViewController: RefCounted, @unchecked Sendable {
             didFailWithError: (any Error)
         ) {
             _ = self.callback.call(nil, Variant(didFailWithError.localizedDescription))
+            done()
         }
     }
 

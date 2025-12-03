@@ -55,5 +55,7 @@ offset_right = 197.0
 offset_bottom = 373.0
 text = "Request Match"
 
+[node name="Node3D" type="Node3D" parent="button_requestmatch"]
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="button_requestmatch" to="." method="_on_button_requestmatch_pressed"]

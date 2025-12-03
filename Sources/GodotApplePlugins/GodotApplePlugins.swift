@@ -14,6 +14,7 @@ import SwiftGodotRuntime
         GameCenterManager.self,
         GKAchievement.self,
         GKAchievementDescription.self,
+        GKGameCenterViewController.self,
         GKLocalPlayer.self,
         GKLeaderboard.self,
         GKLeaderboardSet.self,
@@ -24,7 +25,10 @@ import SwiftGodotRuntime
         GKSavedGame.self
     ],
     enums: [
+        GKGameCenterViewController.State.self,
+        GKLeaderboard.AppleLeaderboardType.self,
         GKLeaderboard.TimeScope.self,
+        GKLeaderboard.PlayerScope.self,
         GKMatch.SendDataMode.self,
         AVAudioSession.SessionCategory.self,
     ])
