@@ -17,6 +17,17 @@ switch to "Release Mode" and set "Create Merged Binary" to "Manual"
 and you will further reduce the size of your executable (about 1.7
 megs at the time of this writing.)
 
+# After you download
+
+Notice that MacOS will not let you load these dynamic libraries until you remove the 
+quarantine attribute from them.
+
+So you need to run this on the binaries after you unpack them:
+
+```
+xattr -dr com.apple.quarantine addons/GodotApplePlugins/bin/*framework/GodotApplePlugins
+```
+
 # Sizes
 
 This compares the size of a Godot iOS export when you add this addon.
