@@ -43,7 +43,7 @@
 		<method name="load_entries">
 			<return type="void" />
 			<param index="0" name="players" type="Array" />
-			<param index="1" name="timeScope" type="TimeScope" />
+			<param index="1" name="timeScope" type="int" enum="GKLeaderboard.TimeScope" />
 			<param index="2" name="callback" type="Callable" />
 			<description>
 				Loads the local player's score together with the specified [code]Array[/code] of [code]GKPlayer[/code] objects for the given time scope. The callback receives [code](GKLeaderboardEntry local, Array[GKLeaderboardEntry] scores, Variant error)[/code] where the first entry can be [code]null[/code] if the local player has not posted a score.
