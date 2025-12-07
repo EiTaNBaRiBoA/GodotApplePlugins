@@ -216,7 +216,7 @@ class GKLeaderboardEntry: RefCounted, @unchecked Sendable {
     }
 
     @Export var context: Int { store?.context ?? 0 }
-    @Export var rank: Int { store?.context ?? 0 }
+    @Export var rank: Int { store?.rank ?? 0 }
     @Export var score: Int { store?.score ?? 0 }
     @Export var formattedScore: String { store?.formattedScore ?? "" }
     @Export var player: GKPlayer? {
