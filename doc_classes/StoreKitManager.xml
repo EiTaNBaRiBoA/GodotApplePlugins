@@ -13,14 +13,14 @@
 			<return type="void" />
 			<param index="0" name="product" type="StoreProduct" />
 			<description>
-				Initiates the purchase of a specific product. usage: `purchase(product)`.
+				Initiates the purchase of a specific product, e.g. [code]purchase(product)[/code].
 			</description>
 		</method>
 		<method name="request_products">
 			<return type="void" />
 			<param index="0" name="productIds" type="PackedStringArray" />
 			<description>
-				Requests product information for a list of product identifiers. usage: `request_products(["com.example.product1", "com.example.product2"])`.
+				Requests product information for a list of product identifiers, e.g. [code]request_products(["com.example.product1", "com.example.product2"])[/code].
 			</description>
 		</method>
 		<method name="restore_purchases">

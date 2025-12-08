@@ -43,10 +43,10 @@
 		<method name="load_entries">
 			<return type="void" />
 			<param index="0" name="players" type="Array" />
-			<param index="1" name="timeScope" type="TimeScope" />
+			<param index="1" name="timeScope" type="int" />
 			<param index="2" name="callback" type="Callable" />
 			<description>
-				Loads the local player's score together with the specified [code]Array[/code] of [code]GKPlayer[/code] objects for the given time scope. The callback receives [code](GKLeaderboardEntry local, Array[GKLeaderboardEntry] scores, Variant error)[/code] where the first entry can be [code]null[/code] if the local player has not posted a score.
+				Loads the local player's score together with the specified [code]Array[/code] of [code]GKPlayer[/code] objects for the given time scope (use the [enum TimeScope] values). The callback receives [code](GKLeaderboardEntry local, Array[GKLeaderboardEntry] scores, Variant error)[/code] where the first entry can be [code]null[/code] if the local player has not posted a score.
 			</description>
 		</method>
 		<method name="load_image">
@@ -66,13 +66,13 @@
 		</method>
 		<method name="load_local_player_entries">
 			<return type="void" />
-			<param index="0" name="playerScope" type="PlayerScope" />
-			<param index="1" name="timeScope" type="TimeScope" />
+			<param index="0" name="playerScope" type="int" />
+			<param index="1" name="timeScope" type="int" />
 			<param index="2" name="rangeStart" type="int" />
 			<param index="3" name="rangeLenght" type="int" />
 			<param index="4" name="callback" type="Callable" />
 			<description>
-				Loads leaderboard entries for the local player.  The callback receives [code](GKLeaderboardEntry local, Array[GKLeaderboardEntry] scores, Variant range, Variant error)[/code] where the first entry can be [code]null[/code] if the local player has not posted a score.   The value `range` is the number of total player count that matched the scope
+				Loads leaderboard entries for the local player.  The callback receives [code](GKLeaderboardEntry local, Array[GKLeaderboardEntry] scores, Variant range, Variant error)[/code] where the first entry can be [code]null[/code] if the local player has not posted a score.   The value `range` is the number of total player count that matched the scope. Supply [enum PlayerScope] and [enum TimeScope] integers for the first two parameters.
 			</description>
 		</method>
 		<method name="submit_score">
