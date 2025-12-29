@@ -12,7 +12,7 @@
 			<return type="void" />
 			<param index="0" name="id" type="String" />
 			<description>
-				Presents an achivement to the user, the id is the identifier of the achievement.
+				Presents an achievement to the user, the id is the identifier of the achievement.
 			</description>
 		</method>
 		<method name="show_leaderboard" qualifiers="static">

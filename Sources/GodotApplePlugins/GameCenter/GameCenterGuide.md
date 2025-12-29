@@ -167,7 +167,7 @@ Note: This only returns achievements with progress that the player has reported.
 ```gdscript
 GKAchievement.load_achievements(func(achievements: Array[GKAchievement], error: Variant)->void:
     if error:
-        print("Load Achivement error %s" % error)
+        print("Load achievement error %s" % error)
     else:
         for achievement in achievements:
             print("Achievement: %s" % achievement.identifier)
@@ -179,7 +179,7 @@ GKAchievement.load_achievements(func(achievements: Array[GKAchievement], error: 
 ```gdscript
 GKAchievementDescription.load_achievement_descriptions(func(adescs: Array[GKAchievementDescription], error: Variant)->void:
     if error:
-        print("Load AchivementDescription error %s" % error)
+        print("Load achievementDescription error %s" % error)
     else:
         for adesc in adescs:
             print("Achievement Description ID: %s" % adesc.identifier)
@@ -206,14 +206,14 @@ var percentage = 100
 
 GKAchievement.load_achievements(func(achievements: Array[GKAchievement], error: Variant)->void:
     if error:
-        print("Load Achivement error %s" % error)
+        print("Load achievement error %s" % error)
     else:
         for achievement in achievements:
             if achievement.identifier == id:
                 if not achievement.is_completed:
                     achievement.percent_complete = percentage
                     achievement.show_completion_banner = true
-                GKAchievement.report_achivement([achievement], func(error: Variant)->void: 
+                GKAchievement.report_achievement([achievement], func(error: Variant)->void: 
                     if error:
                         print("Error submitting achievement")
                     else:
@@ -224,7 +224,7 @@ GKAchievement.load_achievements(func(achievements: Array[GKAchievement], error: 
 ### Reset All Achievements
 
 ```gdscript
-GKAchievement.reset_achivements(func(error: Variant)->void:
+GKAchievement.reset_achievements(func(error: Variant)->void:
     if error:
         print("Error resetting" % error)
     else:

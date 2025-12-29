@@ -54,9 +54,9 @@ class GKAchievement: RefCounted, @unchecked Sendable {
 
     /// The callback is invoked with nil on success, or a string with a description of the error
     @Callable()
-    static func report_achivement(achivements: VariantArray, callback: Callable) {
+    static func report_achievement(achievements: VariantArray, callback: Callable) {
         var array: [GameKit.GKAchievement] = []
-        for va in achivements {
+        for va in achievements {
             guard let va else { continue }
             if let a = va.asObject(GKAchievement.self) {
                 array.append(a.achievement)
@@ -69,13 +69,13 @@ class GKAchievement: RefCounted, @unchecked Sendable {
 
     /// The callback is invoked with nil on success, or a string with a description of the error
     @Callable
-    static func reset_achivements(callback: Callable) {
+    static func reset_achievements(callback: Callable) {
         GameKit.GKAchievement.resetAchievements { error in
             _ = callback.call(mapError(error))
         }
     }
 
-    /// Callback is invoked with two arguments an `Array[GKAchivement]` and an error argument
+    /// Callback is invoked with two arguments an `Array[GKachievement]` and an error argument
     /// on success the error i snil
     @Callable
     static func load_achievements(callback: Callable) {
@@ -134,7 +134,7 @@ class GKAchievementDescription: RefCounted, @unchecked Sendable {
         }
     }
 
-    /// Callback is invoked with two arguments an array of GKAchivementDescriptions and an error argument
+    /// Callback is invoked with two arguments an array of GKachievementDescriptions and an error argument
     /// either one can be nil.
     @Callable
     static func load_achievement_descriptions(callback: Callable) {
